@@ -1,0 +1,22 @@
+<button pButton type="button" (click)="addSuggestion()" label="Add Suggestion"></button>
+<h3>Suggestions</h3>
+<p-panel *ngFor="let s of suggested; let i=index">
+  <p-header>
+    <span>{{s.name}}</span>
+    <div style="float: right">
+      <span>Votes: {{s.votes}}
+        <button pButton type="button" (click)="addVote(i)" icon="fa fa-arrow-up"></button>
+      </span>
+    </div>
+  </p-header>
+  <label>Name</label><input type="text" pInputText [(ngModel)]="s.name" placeholder="Name"/>
+  <br>
+  <div>
+    <label>Description</label>
+    <br>
+    <textarea pInputTextarea  rows="5" cols="80" [(ngModel)]="s.description" placeholder="Enter a description"></textarea>
+  </div>
+  <p-inputSwitch [(ngModel)]="s.willPresent" onLabel="Will Present" offLabel="Won't Present"></p-inputSwitch>
+  <br>
+  <label>Email</label><input type="text" pInputText disabled="{{!s.willPresent}}" [(ngModel)]="s.email" placeholder="email"/>
+</p-panel>

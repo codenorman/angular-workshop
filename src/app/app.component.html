@@ -1,5 +1,12 @@
 <h1>
   {{title}}
 </h1>
-<app-hello-world></app-hello-world>
-<app-meetups></app-meetups>
+<p-toolbar>
+  <div class="ui-toolbar-group-left">
+    <button pButton type="button" label="Upcoming Meetings" routerLink="upcoming-meetups"></button>
+    <button pButton type="button" label="Suggest/Vote for future Meeting" routerLink="suggest-meetup"></button>
+    <button pButton type="button" label="Hello World" routerLink="hello-world"></button>
+  </div>
+</p-toolbar>
+<router-outlet></router-outlet>
+

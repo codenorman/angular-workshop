@@ -12,6 +12,12 @@ export class MeetupsComponent implements OnInit {
   constructor(private meetupService: MeetupService) { }
 
   ngOnInit() {
-    this.meetups = this.meetupService.futureMeetings()
+    this.meetupService.futureMeetings()
+      .subscribe( meetups => {
+          this.meetups = meetups;
+        },
+        err => {
+          console.log(err)
+        })
   }
 }

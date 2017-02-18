@@ -6,11 +6,13 @@ import {PanelModule} from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
+import { MeetupsComponent } from './meetups/meetups.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloWorldComponent
+    HelloWorldComponent,
+    MeetupsComponent
   ],
   imports: [
     BrowserModule,

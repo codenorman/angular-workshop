@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {Meetup} from '../meetup';
-
+import {MeetupService} from "../meetup.service";
 @Component({
   selector: 'app-meetups',
   templateUrl: './meetups.component.html',
-  styleUrls: ['./meetups.component.css']
+  styleUrls: ['./meetups.component.css'],
+  providers: [MeetupService]
 })
 export class MeetupsComponent implements OnInit {
   meetups: Meetup[];
-  constructor() { }
+  constructor(private meetupService: MeetupService) { }
 
   ngOnInit() {
-    this.meetups = []; // initialize array
-    this.meetups.push(new Meetup('Angular 2 - Part 1','http://meetup.com', 'Angular Workshop'));
-    this.meetups.push(new Meetup('Angular 2 – Part 2','http://meetup.com', 'Angular Workshop'));
+    this.meetups = this.meetupService.futureMeetings()
   }
 }
